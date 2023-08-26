@@ -70,38 +70,48 @@ MindwarePlugin:
   config: {}
   enabled: true
 ```
-### 3. Run Auto-GPT
+### 3. Run Auto-GPT (and install dependencies)
 
 #### For Mac, Linux, or WSL:
 
 ```bash
-./run.sh
+./run.sh --install-plugin-deps
 ```
 
 #### For Windows (Powershell):
 
 ```powershell
-.\run.bat
+.\run.bat --install-plugin-deps
+```
+
+#### Directly Via CLI:
+
+```
+python -m autogpt --install-plugin-deps
 ```
 
 ## 🚀 How to Use
 
-After completing the installation and configuration steps, you can enable specific plugins for Auto-GPT via the [Mindware website](https://mindware.xyz). For instance, if you want to allow AutoGPT to solve math problems, enable WolframAlpha:
+After completing the installation and configuration steps, you can enable specific plugins for Auto-GPT via the [Mindware website](https://mindware.xyz). For instance, if you want to allow AutoGPT to find YouTube videos, enable the YouTube plugin:
 
-<img width="944" alt="Screenshot 2023-08-26 153427" src="https://github.com/open-mindware/AutoGPT-Mindware/assets/23727727/3a663be4-8925-4485-ab91-304fd6e9868a">
+<img width="946" alt="Screenshot 2023-08-26 191713" src="https://github.com/open-mindware/AutoGPT-Mindware/assets/23727727/65c04ad1-a842-4342-8b28-802b966d91ef">
 
 ### Example:
 
 #### 1. Configure Auto-GPT
 
-Set up Auto-GPT with the following parameters:
+Set up the `ai_settings.yaml` file with the following parameters:
 
-- **Name**: `MathSolverGPT`
-- **Role**: `An AI designed to follow user instructions`
-- **Goals**:
-  1. `Solve the integral of x^2 from 0 to 3`
-  2. `Terminate`
+```yaml
+ai_goals:
+  - Find YouTube videos on how to make salmon nigiri.
+ai_name: FoodTubeGPT
+ai_role:
+  An AI-powered virtual assistant that specializes in helping users find and
+  obtain specific cooking videos on YouTube.
+api_budget: 0.05
+```
 
 #### 2. Run Auto-GPT
 
-Launch Auto-GPT. It should utilize the WolframAlpha plugin to solve the math problem and return the result.
+Launch Auto-GPT. It should utilize the YouTube plugin to find the specified content.
