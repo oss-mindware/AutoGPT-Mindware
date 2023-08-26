@@ -29,7 +29,7 @@
 
 ### 1. Obtain Mindware API Key
 
-Sign up for a [free Mindware account](https://mindware.xyz) to get your API key.
+Sign up for a [free Mindware account](https://mindware.xyz){:target="_blank" rel="noopener"} to get your API key.
 
 ### 2. Install the Plugin
 
@@ -73,7 +73,7 @@ MindwarePlugin:
 
 ## 🚀 How to Use
 
-After completing the installation and configuration steps, you can enable specific plugins for Auto-GPT via the [Mindware website](https://mindware.xyz). For instance, if you want to allow AutoGPT to solve math problems, enable WolframAlpha:
+After completing the installation and configuration steps, you can enable specific plugins for Auto-GPT via the [Mindware website](https://mindware.xyz){:target="_blank" rel="noopener"}. For instance, if you want to allow AutoGPT to solve math problems, enable WolframAlpha:
 
 <img width="944" alt="Screenshot 2023-08-26 153427" src="https://github.com/open-mindware/AutoGPT-Mindware/assets/23727727/3a663be4-8925-4485-ab91-304fd6e9868a">
 
