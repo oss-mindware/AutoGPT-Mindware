@@ -61,7 +61,7 @@ Add your Mindware API key to your `.env` file by appending the following lines:
 MINDWARE_API_KEY=your_api_key_here
 ```
 
-### 2. Update (or Create) `plugins_config.yaml` File
+### 2. Create or `plugins_config.yaml` File
 
 If the `plugins_config.yaml` file doesn't exist, **create a one**. Then, add the following configuration:
 
@@ -70,7 +70,7 @@ MindwarePlugin:
   config: {}
   enabled: true
 ```
-### 3. Run Auto-GPT (and install dependencies)
+### 3. Run Auto-GPT / Install Dependencies
 
 #### For Mac, Linux, or WSL:
 
@@ -92,7 +92,7 @@ python -m autogpt --install-plugin-deps
 
 ## 🚀 How to Use
 
-After completing the installation and configuration steps, you can enable specific plugins for Auto-GPT via the [Mindware website](https://mindware.xyz). For instance, if you want to allow AutoGPT to find YouTube videos, enable the YouTube plugin:
+After completing the installation and configuration steps, you can enable specific plugins for Auto-GPT via the [Mindware website](https://mindware.xyz). For instance, if you want to allow Auto-GPT to find YouTube videos, enable the YouTube plugin:
 
 <img width="946" alt="Screenshot 2023-08-26 191713" src="https://github.com/open-mindware/AutoGPT-Mindware/assets/23727727/65c04ad1-a842-4342-8b28-802b966d91ef">
 
