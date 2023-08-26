@@ -23,12 +23,6 @@
 <br />
 <div align="center">
     <img src="https://wlqmlsriumpfpcnpgpxn.supabase.co/storage/v1/object/public/media/logos/mindware.png" alt="Logo" width="200" height="200">
-
-  <h3 align="center">AutoGPT-Mindware</h3>
-
-  <p align="center">
-    A developer-friendly marketplace for plugins!
-  </p>
 </div>
 
 ## 📚 Prerequisites
@@ -79,7 +73,9 @@ MindwarePlugin:
 
 ## 🚀 How to Use
 
-After completing the installation and configuration steps, you can enable specific plugins for Auto-GPT via the [Mindware website](https://mindware.xyz).
+After completing the installation and configuration steps, you can enable specific plugins for Auto-GPT via the [Mindware website](https://mindware.xyz). For instance, if you want to allow AutoGPT to solve math problems, enable WolframAlpha:
+
+<img width="944" alt="Screenshot 2023-08-26 153427" src="https://github.com/open-mindware/AutoGPT-Mindware/assets/23727727/3a663be4-8925-4485-ab91-304fd6e9868a">
 
 ### Example:
 
