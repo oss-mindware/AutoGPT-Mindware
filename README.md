@@ -29,7 +29,9 @@
 
 ### 1. Obtain Mindware API Key
 
-Sign up for a [free Mindware account](https://mindware.xyz) to get your API key.
+Sign up for a [free Mindware account](https://mindware.xyz) and locate your API key on the account page:
+
+<img width="946" alt="Screenshot 2023-08-27 145759" src="https://github.com/open-mindware/AutoGPT-Mindware/assets/23727727/00583046-3468-4bfe-b32d-5a6c76009068">
 
 ### 2. Install the Plugin
 
