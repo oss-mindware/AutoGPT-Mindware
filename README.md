@@ -90,9 +90,9 @@ MindwarePlugin:
 python -m autogpt --install-plugin-deps
 ```
 
-## 🚀 How to Use
+## 🧠 How to Use
 
-After completing the installation and configuration steps, you can enable specific plugins for Auto-GPT via the [Mindware website](https://mindware.xyz). For instance, if you want to allow Auto-GPT to find YouTube videos, enable the YouTube plugin:
+After completing the installation and configuration steps, you can enable specific plugins for Auto-GPT via the [Mindware website](https://mindware.xyz). For instance, if you want Auto-GPT to find YouTube videos, enable the YouTube plugin:
 
 <img width="946" alt="Screenshot 2023-08-26 191713" src="https://github.com/open-mindware/AutoGPT-Mindware/assets/23727727/65c04ad1-a842-4342-8b28-802b966d91ef">
 
@@ -114,5 +114,5 @@ api_budget: 0.05
 
 #### 2. Run Auto-GPT
 
-Launch Auto-GPT. It should utilize the Third Party YouTube plugin to find sushi videos 🍣
+Launch Auto-GPT. It should utilize the YouTube plugin to find sushi videos 🍣
 
