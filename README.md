@@ -61,7 +61,7 @@ Add your Mindware API key to your `.env` file by appending the following lines:
 MINDWARE_API_KEY=your_api_key_here
 ```
 
-### 2. Create or `plugins_config.yaml` File
+### 2. Create or update `plugins_config.yaml` File
 
 If the `plugins_config.yaml` file doesn't exist, **create a one**. Then, add the following configuration:
 
@@ -70,7 +70,7 @@ MindwarePlugin:
   config: {}
   enabled: true
 ```
-### 3. Run Auto-GPT / Install Dependencies
+### 3. Run Auto-GPT
 
 #### For Mac, Linux, or WSL:
 
