@@ -104,7 +104,7 @@ Set up the `ai_settings.yaml` file with the following parameters:
 
 ```yaml
 ai_goals:
-  - Find YouTube videos on how to make salmon nigiri.
+  - Find YouTube videos on how to make Otoro nigiri.
 ai_name: FoodTubeGPT
 ai_role:
   An AI-powered virtual assistant that specializes in helping users find and
@@ -114,4 +114,5 @@ api_budget: 0.05
 
 #### 2. Run Auto-GPT
 
-Launch Auto-GPT. It should utilize the YouTube plugin to find the specified content.
+Launch Auto-GPT. It should utilize the Third Party YouTube plugin to find sushi videos 🍣
+
