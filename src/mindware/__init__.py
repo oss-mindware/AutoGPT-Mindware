@@ -1,7 +1,6 @@
 import os
-from typing import Any, Dict, List, Optional, Tuple, TypedDict, TypeVar
-
 from auto_gpt_plugin_template import AutoGPTPluginTemplate
+from typing import Any, Dict, List, Optional, Tuple, TypedDict, TypeVar
 
 PromptGenerator = TypeVar("PromptGenerator")
 
@@ -40,8 +39,8 @@ class MindwarePlugin(AutoGPTPluginTemplate):
         """
 
         from .mindware import (
-            get_enabled_plugin_functions,
             create_request_functions,
+            get_enabled_plugin_functions,
         )
 
         plugin_functions = get_enabled_plugin_functions()
@@ -49,8 +48,11 @@ class MindwarePlugin(AutoGPTPluginTemplate):
         for plugin_function in plugin_functions:
             if plugin_function.method == 'get':
                 query = {}
-            if plugin_function.method == 'post':
+            elif plugin_function.method == 'post':
                 query = {"query": "Query to send to Mindware."}
+            else:
+                query = None
+
             prompt.add_command(
                 plugin_function.name,
                 plugin_function.description,
