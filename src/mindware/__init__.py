@@ -21,7 +21,6 @@ class MindwarePlugin(AutoGPTPluginTemplate):
         self._name = "AutoGPT-Mindware-Plugin"
         self._version = "0.0.3"
         self._description = "This is a plugin for Auto-GPT which grants access to the Mindware plugin marketplace."
-
         self.yt_api_key = os.environ.get("MINDWARE_API_KEY")
         if self.yt_api_key is None:
             print(
