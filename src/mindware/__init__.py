@@ -26,7 +26,6 @@ class MindwarePlugin(AutoGPTPluginTemplate):
             print(
                 "WARNING: The Mindware API key is not set, therefore Mindware commands are disabled. Please set the MINDWARE_API_KEY=your_api_key environment variable."
             )
-
         self.workspace_path = "autogpt\\auto_gpt_workspace"
 
     def post_prompt(self, prompt: PromptGenerator) -> PromptGenerator:
