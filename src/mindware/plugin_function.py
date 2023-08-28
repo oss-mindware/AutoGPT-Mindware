@@ -1,5 +1,5 @@
 class PluginFunction:
-    def __init__(self, url, name, path, params, method, auth_info, description, requires_auth, response_type):
+    def __init__(self, url, name, path, params, method, description, requires_auth=False, auth_info=None, response_type=None):
         self.url = url
         self.name = name
         self.path = path
