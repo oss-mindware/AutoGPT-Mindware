@@ -13,21 +13,19 @@ class Message(TypedDict):
 
 class MindwarePlugin(AutoGPTPluginTemplate):
     """
-    This is a plugin for Auto-GPT which grants access to the Mindware plugin marketplace.
+    Mindware plugin for AutoGPT.
     """
 
     def __init__(self):
         super().__init__()
         self._name = "AutoGPT-Mindware-Plugin"
         self._version = "0.0.3"
-        self._description = "This is a plugin for Auto-GPT which grants access to the Mindware plugin marketplace."
-
+        self._description = "This plugin allows AutoGPT to access Mindware - the “App Store” for AI plugins."
         self.yt_api_key = os.environ.get("MINDWARE_API_KEY")
         if self.yt_api_key is None:
             print(
-                "WARNING: The Mindware API key is not set, therefore Mindware commands are disabled. Please set the MINDWARE_API_KEY=your_api_key environment variable."
+                "WARNING: The Mindware API key is not set, therefore Mindware commands are disabled. Please set the MINDWARE_API_KEY environment variable."
             )
-
         self.workspace_path = "autogpt\\auto_gpt_workspace"
 
     def post_prompt(self, prompt: PromptGenerator) -> PromptGenerator:
