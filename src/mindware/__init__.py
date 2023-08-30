@@ -90,11 +90,12 @@ class MindwarePlugin(AutoGPTPluginTemplate):
         for plugin_function in plugin_functions:
             params = self.generate_parameters(plugin_function)
             credentials = self.generate_credentials(plugin_function)
+            context = {**params, **credentials}
 
             prompt.add_command(
                 plugin_function.name,
                 plugin_function.description,
-                params,
+                context,
                 create_request_functions(plugin_function),
             )
 
