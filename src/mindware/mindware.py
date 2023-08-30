@@ -1,6 +1,6 @@
 import os
 import requests
-from plugin_function import PluginFunction
+from .plugin_function import PluginFunction
 
 api_key = os.environ.get("MINDWARE_API_KEY")
 if api_key is None:
@@ -37,7 +37,7 @@ def create_request_functions(function_info):
         if function_info.method == "get":
             response = requests.get(full_url, headers=headers)
         elif function_info.method == "post":
-            response = requests.post(full_url, headers=headers, json={"query": query})
+            response = requests.post(full_url, headers=headers, json=query)
         else:
             print("Unsupported HTTP method:", function_info.method)
             return None

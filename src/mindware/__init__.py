@@ -28,6 +28,24 @@ class MindwarePlugin(AutoGPTPluginTemplate):
             )
         self.workspace_path = "autogpt\\auto_gpt_workspace"
 
+    def generate_params(self, plugin_function) -> Dict[str, str]:
+        """
+        Generates the param_object based on the plugin_function.
+
+        Args:
+            plugin_function: The plugin function for which to generate the param_object.
+
+        Returns:
+            Dict[str, str]: The dynamically generated param_object.
+        """
+        params = {}
+
+        if plugin_function.params is not None:
+            for param in plugin_function.params:
+                params = param
+
+        return params
+
     def post_prompt(self, prompt: PromptGenerator) -> PromptGenerator:
         """This method is called just after the generate_prompt is called,
             but actually before the prompt is generated.
@@ -47,14 +65,12 @@ class MindwarePlugin(AutoGPTPluginTemplate):
         plugin_functions = get_enabled_plugin_functions()
 
         for plugin_function in plugin_functions:
-            if plugin_function.method == "get":
-                query = {}
-            if plugin_function.method == "post":
-                query = {"query": "Query to send to Mindware."}
+            params = self.generate_params(plugin_function)
+
             prompt.add_command(
                 plugin_function.name,
                 plugin_function.description,
-                query,
+                params,
                 create_request_functions(plugin_function),
             )
 
