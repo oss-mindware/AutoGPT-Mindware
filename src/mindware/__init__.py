@@ -21,14 +21,37 @@ class MindwarePlugin(AutoGPTPluginTemplate):
         self._name = "AutoGPT-Mindware-Plugin"
         self._version = "0.0.3"
         self._description = "This is a plugin for Auto-GPT which grants access to the Mindware plugin marketplace."
-        self.api_key = os.environ.get("MINDWARE_API_KEY")
-        if self.api_key is None:
-            print(
-                "WARNING: The Mindware API key is not set, therefore Mindware commands are disabled. Please set the MINDWARE_API_KEY=your_api_key environment variable."
-            )
         self.workspace_path = "autogpt\\auto_gpt_workspace"
 
-    def generate_params(self, plugin_function) -> Dict[str, str]:
+    def generate_credentials(self, plugin_function) -> Dict[str, str]:
+        """
+        Generates the param_object based on the plugin_function.
+
+        Args:
+            plugin_function: The plugin function for which to generate the param_object.
+
+        Returns:
+            Dict[str, str]: The dynamically generated param_object.
+        """
+        credentials = {}
+
+        if plugin_function.requires_auth is not False:
+            if plugin_function.auth_info.token_field:
+                credentials.token = os.environ.get(
+                    plugin_function.auth_info.token_field
+                )
+            if plugin_function.auth_info.username_field:
+                credentials.username = os.environ.get(
+                    plugin_function.auth_info.username_field
+                )
+            if plugin_function.auth_info.password_field:
+                credentials.password = os.environ.get(
+                    plugin_function.auth_info.password_field
+                )
+
+        return credentials
+
+    def generate_parameters(self, plugin_function) -> Dict[str, str]:
         """
         Generates the param_object based on the plugin_function.
 
@@ -43,6 +66,7 @@ class MindwarePlugin(AutoGPTPluginTemplate):
         if plugin_function.params is not None:
             for param in plugin_function.params:
                 params = param
+            return params
 
         return params
 
@@ -58,19 +82,21 @@ class MindwarePlugin(AutoGPTPluginTemplate):
         """
 
         from .mindware import (
-            get_enabled_plugin_functions,
             create_request_functions,
+            get_enabled_plugin_functions,
         )
 
         plugin_functions = get_enabled_plugin_functions()
 
         for plugin_function in plugin_functions:
-            params = self.generate_params(plugin_function)
+            params = self.generate_parameters(plugin_function)
+            credentials = self.generate_credentials(plugin_function)
 
             prompt.add_command(
                 plugin_function.name,
                 plugin_function.description,
                 params,
+                credentials,
                 create_request_functions(plugin_function),
             )
 
