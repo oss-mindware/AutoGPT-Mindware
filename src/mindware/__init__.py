@@ -35,20 +35,21 @@ class MindwarePlugin(AutoGPTPluginTemplate):
         """
         credentials = {}
 
-        if plugin_function.requires_auth is not False:
-            if plugin_function.auth_info.token_field:
-                credentials.token = os.environ.get(
-                    plugin_function.auth_info.token_field
+        if plugin_function.requires_auth is True:
+            if "token_field" in plugin_function.auth_info:
+                credentials["token_field"] = os.environ.get(
+                    plugin_function.auth_info["token_field"]
                 )
-            if plugin_function.auth_info.username_field:
-                credentials.username = os.environ.get(
-                    plugin_function.auth_info.username_field
+            if "username_field" in plugin_function.auth_info:
+                credentials["username_field"] = os.environ.get(
+                    plugin_function.auth_info["username_field"]
                 )
-            if plugin_function.auth_info.password_field:
-                credentials.password = os.environ.get(
-                    plugin_function.auth_info.password_field
+            if "password_field" in plugin_function.auth_info:
+                credentials["password_field"] = os.environ.get(
+                    plugin_function.auth_info["password_field"]
                 )
 
+        # print(credentials)
         return credentials
 
     def generate_parameters(self, plugin_function) -> Dict[str, str]:
@@ -64,10 +65,10 @@ class MindwarePlugin(AutoGPTPluginTemplate):
         params = {}
 
         if plugin_function.params is not None:
-            for param in plugin_function.params:
-                params = param
+            params = plugin_function.params
             return params
 
+        # print(params)
         return params
 
     def post_prompt(self, prompt: PromptGenerator) -> PromptGenerator:
@@ -96,7 +97,6 @@ class MindwarePlugin(AutoGPTPluginTemplate):
                 plugin_function.name,
                 plugin_function.description,
                 params,
-                credentials,
                 create_request_functions(plugin_function),
             )
 
