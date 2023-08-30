@@ -49,7 +49,6 @@ class MindwarePlugin(AutoGPTPluginTemplate):
                     plugin_function.auth_info["password_field"]
                 )
 
-        # print(credentials)
         return credentials
 
     def generate_parameters(self, plugin_function) -> Dict[str, str]:
@@ -68,7 +67,6 @@ class MindwarePlugin(AutoGPTPluginTemplate):
             params = plugin_function.params
             return params
 
-        # print(params)
         return params
 
     def post_prompt(self, prompt: PromptGenerator) -> PromptGenerator:
