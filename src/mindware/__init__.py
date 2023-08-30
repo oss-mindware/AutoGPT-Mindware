@@ -1,6 +1,7 @@
 import os
-from auto_gpt_plugin_template import AutoGPTPluginTemplate
 from typing import Any, Dict, List, Optional, Tuple, TypedDict, TypeVar
+
+from auto_gpt_plugin_template import AutoGPTPluginTemplate
 
 PromptGenerator = TypeVar("PromptGenerator")
 
@@ -20,12 +21,12 @@ class MindwarePlugin(AutoGPTPluginTemplate):
         self._name = "AutoGPT-Mindware-Plugin"
         self._version = "0.0.3"
         self._description = "This is a plugin for Auto-GPT which grants access to the Mindware plugin marketplace."
-        self.workspace_path = "autogpt\\auto_gpt_workspace"
         self.api_key = os.environ.get("MINDWARE_API_KEY")
         if self.api_key is None:
             print(
                 "WARNING: The Mindware API key is not set, therefore Mindware commands are disabled. Please set the MINDWARE_API_KEY=your_api_key environment variable."
             )
+        self.workspace_path = "autogpt\\auto_gpt_workspace"
 
     def post_prompt(self, prompt: PromptGenerator) -> PromptGenerator:
         """This method is called just after the generate_prompt is called,
@@ -39,20 +40,17 @@ class MindwarePlugin(AutoGPTPluginTemplate):
         """
 
         from .mindware import (
-            create_request_functions,
             get_enabled_plugin_functions,
+            create_request_functions,
         )
 
         plugin_functions = get_enabled_plugin_functions()
 
         for plugin_function in plugin_functions:
-            if plugin_function.method == 'get':
+            if plugin_function.method == "get":
                 query = {}
-            elif plugin_function.method == 'post':
+            if plugin_function.method == "post":
                 query = {"query": "Query to send to Mindware."}
-            else:
-                query = None
-
             prompt.add_command(
                 plugin_function.name,
                 plugin_function.description,
@@ -75,7 +73,7 @@ class MindwarePlugin(AutoGPTPluginTemplate):
         return False
 
     def on_planning(
-            self, prompt: PromptGenerator, messages: List[Message]
+        self, prompt: PromptGenerator, messages: List[Message]
     ) -> Optional[str]:
         pass
 
@@ -107,7 +105,7 @@ class MindwarePlugin(AutoGPTPluginTemplate):
         return False
 
     def pre_command(
-            self, command_name: str, arguments: Dict[str, Any]
+        self, command_name: str, arguments: Dict[str, Any]
     ) -> Tuple[str, Dict[str, Any]]:
         pass
 
@@ -118,23 +116,19 @@ class MindwarePlugin(AutoGPTPluginTemplate):
         pass
 
     def can_handle_chat_completion(
-            self, messages: Dict[Any, Any], model: str, temperature: float, max_tokens: int
+        self, messages: Dict[Any, Any], model: str, temperature: float, max_tokens: int
     ) -> bool:
         return False
 
     def handle_chat_completion(
-            self, messages: List[Message], model: str, temperature: float, max_tokens: int
+        self, messages: List[Message], model: str, temperature: float, max_tokens: int
     ) -> str:
         pass
 
-    def can_handle_text_embedding(
-        self, text: str
-    ) -> bool:
+    def can_handle_text_embedding(self, text: str) -> bool:
         return False
 
-    def handle_text_embedding(
-        self, text: str
-    ) -> list:
+    def handle_text_embedding(self, text: str) -> list:
         pass
 
     def can_handle_user_input(self, user_input: str) -> bool:
