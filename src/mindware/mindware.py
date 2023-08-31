@@ -32,12 +32,14 @@ def get_enabled_plugin_functions() -> list[PluginFunction]:
 
 
 def create_request_functions(function_info):
-    def send_request(query=None):
+    def send_request(**kwargs):
+        kwargs = kwargs or {}
         full_url = function_info.url + function_info.path
+
         if function_info.method == "get":
-            response = requests.get(full_url, headers=headers)
+            response = requests.get(full_url, headers=headers, params=kwargs)
         elif function_info.method == "post":
-            response = requests.post(full_url, headers=headers, json=query)
+            response = requests.post(full_url, headers=headers, json=kwargs)
         else:
             print("Unsupported HTTP method:", function_info.method)
             return None
