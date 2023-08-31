@@ -1,11 +1,10 @@
 import os
 from cryptography.hazmat.primitives import hashes
+from cryptography.hazmat.primitives import serialization
 from cryptography.hazmat.backends import default_backend
 from auto_gpt_plugin_template import AutoGPTPluginTemplate
-from typing import Any, Dict, List, Optional, Tuple, TypedDict, TypeVar
-
-from cryptography.hazmat.primitives import serialization
 from cryptography.hazmat.primitives.asymmetric import padding
+from typing import Any, Dict, List, Optional, Tuple, TypedDict, TypeVar
 
 
 PromptGenerator = TypeVar("PromptGenerator")
@@ -46,13 +45,12 @@ class MindwarePlugin(AutoGPTPluginTemplate):
             credential (str): The credential to be encrypted.
 
         Returns:
-            str: The encrypted credential as a base64 encoded string.
+            str: The encrypted credential as a hex string.
         """
         public_key = serialization.load_pem_public_key(
             public_key_str.encode('utf-8'),
             backend=default_backend()
         )
-        print(public_key)
 
         ciphertext = public_key.encrypt(
             credential.encode(),
@@ -62,7 +60,7 @@ class MindwarePlugin(AutoGPTPluginTemplate):
                 label=None
             )
         )
-        print(ciphertext.hex())
+
         return ciphertext.hex()
 
     def generate_credentials(self, plugin_function) -> Dict[str, str]:
