@@ -1,8 +1,24 @@
 import os
+from cryptography.hazmat.primitives import hashes
+from cryptography.hazmat.backends import default_backend
 from auto_gpt_plugin_template import AutoGPTPluginTemplate
 from typing import Any, Dict, List, Optional, Tuple, TypedDict, TypeVar
 
+from cryptography.hazmat.primitives import serialization
+from cryptography.hazmat.primitives.asymmetric import padding
+
+
 PromptGenerator = TypeVar("PromptGenerator")
+
+public_key_str = """-----BEGIN PUBLIC KEY-----
+MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAtoVTH5VtI//1PNxtCMKp
+bt1qtZhEudI++ipBy/etdKencQJ2CPYE/WXRY4izQfBR+JjPha2wTbeoxwE/gPt0
+MYyIC6MGId03zAUbW6orbrOzmRL+gTiGcJuKOb5NvBsW6NE1rRxNANGegmzkzfXm
+ro1rgN6arLrWcZebSpmHyR6LCaN89K87gFVvRhFfk7oktI4J6fcFLaXJaOZu4qZC
+YRfwL8FYYdKnLiSr1zH8U80OsZnNGeLzUS+SLdfe6s95w6R7JOxnFY2trlzGsvJt
+wkKygvuN68Sik8Tb6PRPnOCxmsLKKLsOtMGEArTv/GwFub3DUXUd2DgfRhJ8LYw0
+0wIDAQAB
+-----END PUBLIC KEY-----"""
 
 
 class Message(TypedDict):
@@ -22,6 +38,33 @@ class MindwarePlugin(AutoGPTPluginTemplate):
         self._description = "This is a plugin for Auto-GPT which grants access to the Mindware plugin marketplace."
         self.workspace_path = "autogpt\\auto_gpt_workspace"
 
+    def encrypt_credentials(self, credential: str) -> str:
+        """
+        Encrypts a credential using RSA encryption.
+
+        Args:
+            credential (str): The credential to be encrypted.
+
+        Returns:
+            str: The encrypted credential as a base64 encoded string.
+        """
+        public_key = serialization.load_pem_public_key(
+            public_key_str.encode('utf-8'),
+            backend=default_backend()
+        )
+        print(public_key)
+
+        ciphertext = public_key.encrypt(
+            credential.encode(),
+            padding.OAEP(
+                mgf=padding.MGF1(algorithm=hashes.SHA256()),
+                algorithm=hashes.SHA256(),
+                label=None
+            )
+        )
+        print(ciphertext.hex())
+        return ciphertext.hex()
+
     def generate_credentials(self, plugin_function) -> Dict[str, str]:
         """
         Generates the param_object based on the plugin_function.
@@ -36,17 +79,19 @@ class MindwarePlugin(AutoGPTPluginTemplate):
 
         if plugin_function.requires_auth is True:
             if "token_field" in plugin_function.auth_info:
-                credentials["token_field"] = os.environ.get(
-                    plugin_function.auth_info["token_field"]
-                )
+                token = os.environ.get(plugin_function.auth_info["token_field"])
+                encrypted_token = self.encrypt_credentials(token)
+                credentials["token_field"] = encrypted_token
+
             if "username_field" in plugin_function.auth_info:
-                credentials["username_field"] = os.environ.get(
-                    plugin_function.auth_info["username_field"]
-                )
+                username = os.environ.get(plugin_function.auth_info["username_field"])
+                encrypted_username = self.encrypt_credentials(username)
+                credentials["username_field"] = encrypted_username
+
             if "password_field" in plugin_function.auth_info:
-                credentials["password_field"] = os.environ.get(
-                    plugin_function.auth_info["password_field"]
-                )
+                password = os.environ.get(plugin_function.auth_info["password_field"])
+                encrypted_password = self.encrypt_credentials(password)
+                credentials["password_field"] = encrypted_password
 
         return credentials
 
