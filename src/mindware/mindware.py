@@ -2,9 +2,10 @@ import os
 import requests
 from .plugin_function import PluginFunction
 
-
-headers = {"Authorization": "Bearer " +
-           os.environ.get("MINDWARE_API_KEY"), "Content-Type": "application/json"}
+api_key = os.environ.get("MINDWARE_API_KEY")
+if api_key is None:
+    raise ValueError("MINDWARE_API_KEY environment variable is not set")
+headers = {"Authorization": "Bearer " + api_key, "Content-Type": "application/json"}
 
 
 def get_enabled_plugin_functions() -> list[PluginFunction]:
@@ -31,12 +32,14 @@ def get_enabled_plugin_functions() -> list[PluginFunction]:
 
 
 def create_request_functions(function_info):
-    def send_request(query=None):
+    def send_request(**kwargs):
+        kwargs = kwargs or {}
         full_url = function_info.url + function_info.path
-        if function_info.method == 'get':
-            response = requests.get(full_url, headers=headers)
-        elif function_info.method == 'post':
-            response = requests.post(full_url, headers=headers, json={"query": query})
+
+        if function_info.method == "get":
+            response = requests.get(full_url, headers=headers, params=kwargs)
+        elif function_info.method == "post":
+            response = requests.post(full_url, headers=headers, json=kwargs)
         else:
             print("Unsupported HTTP method:", function_info.method)
             return None
