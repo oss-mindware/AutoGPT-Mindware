@@ -78,18 +78,21 @@ class MindwarePlugin(AutoGPTPluginTemplate):
         if plugin_function.requires_auth is True:
             if "token_field" in plugin_function.auth_info:
                 token = os.environ.get(plugin_function.auth_info["token_field"])
-                encrypted_token = self.encrypt_credentials(token)
-                credentials["token_field"] = encrypted_token
+                if token:
+                    encrypted_token = self.encrypt_credentials(token)
+                    credentials["token_field"] = encrypted_token
 
             if "username_field" in plugin_function.auth_info:
                 username = os.environ.get(plugin_function.auth_info["username_field"])
-                encrypted_username = self.encrypt_credentials(username)
-                credentials["username_field"] = encrypted_username
+                if username:
+                    encrypted_username = self.encrypt_credentials(username)
+                    credentials["username_field"] = encrypted_username
 
             if "password_field" in plugin_function.auth_info:
                 password = os.environ.get(plugin_function.auth_info["password_field"])
-                encrypted_password = self.encrypt_credentials(password)
-                credentials["password_field"] = encrypted_password
+                if password:
+                    encrypted_password = self.encrypt_credentials(password)
+                    credentials["password_field"] = encrypted_password
 
         return credentials
 
