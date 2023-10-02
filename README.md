@@ -20,10 +20,7 @@
 -->
 
 <!-- PROJECT LOGO -->
-<br />
-<div align="center">
-    ![mindware](https://github.com/open-mindware/AutoGPT-Mindware/assets/23727727/2408f6cb-cea3-40d8-b495-3d52f5470c64)
-</div>
+![machine-learning](https://github.com/open-mindware/AutoGPT-Mindware/assets/23727727/e5c46b2a-5b99-4c72-9d36-4bdc25e37551)
 
 ## 📚 Prerequisites
 
