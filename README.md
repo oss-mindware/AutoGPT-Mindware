@@ -20,7 +20,9 @@
 -->
 
 <!-- PROJECT LOGO -->
-![machine-learning](https://github.com/open-mindware/AutoGPT-Mindware/assets/23727727/6d982e1b-ffff-4fe5-9820-04441f8e77d2)
+<div align="center">
+    <img src="https://github.com/open-mindware/AutoGPT-Mindware/assets/23727727/6d982e1b-ffff-4fe5-9820-04441f8e77d2" alt="Logo" width="200" height="200">
+</div>
 
 ## 📚 Prerequisites
 
