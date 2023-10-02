@@ -22,7 +22,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-    <img src="https://github.com/open-mindware/AutoGPT-Mindware/assets/23727727/00583046-3468-4bfe-b32d-5a6c76009068" alt="Logo" width="200" height="200">
+    <img src="[https://github.com/open-mindware/AutoGPT-Mindware/assets/23727727/00583046-3468-4bfe-b32d-5a6c76009068](https://github.com/open-mindware/AutoGPT-Mindware/assets/23727727/cc1b37fe-1538-4243-ab01-47219480354a)" alt="Logo" width="200" height="200">
 </div>
 
 ## 📚 Prerequisites
