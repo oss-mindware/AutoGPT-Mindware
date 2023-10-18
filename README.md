@@ -34,7 +34,7 @@ Sign up to [Mindware](https://mindware.xyz) and locate your free API key on the 
 
 ### 2. Install Docker Desktop
 
-If you haven't already installed Docker Desktop, download the latest version [here](https://www.docker.com/products/docker-desktop).
+If you don't already have Docker, download and install the latest version [here](https://www.docker.com/products/docker-desktop).
 
 ## 🔧 Setup
 
