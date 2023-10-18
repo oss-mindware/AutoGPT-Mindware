@@ -28,7 +28,7 @@
 
 ### 1. Obtain OpenAI API Key
 
-If you don't already have an OpenAI API key, register for one [here][https://openai.com/blog/openai-api).
+If you don't already have an OpenAI API key, register for one [here](https://openai.com/blog/openai-api).
 
 ### 2. Obtain Mindware API Key
 
