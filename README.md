@@ -47,7 +47,7 @@ cd plugins && git clone https://github.com/open-mindware/AutoGPT-Mindware.git &&
 #### For Windows (Powershell):
 
 ```powershell
-git clone [https://github.com/open-mindware/mindware-installer.git](https://github.com/open-mindware/AutoGPT-Mindware-Installer.git); cd AutoGPT-Mindware-Installer; .\installer.bat
+git clone https://github.com/open-mindware/AutoGPT-Mindware-Installer.git; cd AutoGPT-Mindware-Installer; .\installer.bat
 ```
 
 ## 🔧 Configuration Steps
