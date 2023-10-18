@@ -60,7 +60,7 @@ git clone https://github.com/open-mindware/AutoGPT-Mindware-Installer.git; cd Au
 
 ### 3. Run AutoGPT
 
-Whenever you want to run AutoGPT after the installation process, run the following command in the AutoGPT directory:
+Whenever you want to run AutoGPT after the installation process, run the following command from the AutoGPT directory:
 
 ```bash
 docker compose run --rm auto-gpt --install-plugin-deps
