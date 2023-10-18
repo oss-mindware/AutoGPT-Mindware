@@ -26,13 +26,17 @@
 
 ## 📚 Prerequisites
 
-### 1. Obtain Mindware API Key
+### 1. Obtain OpenAI API Key
+
+If you don't already have an OpenAI API key, register for one [here][https://openai.com/blog/openai-api).
+
+### 2. Obtain Mindware API Key
 
 Sign up to [Mindware](https://mindware.xyz) and locate your free API key on the account page:
 
 <img width="945" alt="Screenshot 2023-08-27 145759" src="https://github.com/open-mindware/AutoGPT-Mindware/assets/23727727/00583046-3468-4bfe-b32d-5a6c76009068">
 
-### 2. Install Docker Desktop
+### 3. Install Docker Desktop
 
 If you don't already have Docker, download and install the latest version [here](https://www.docker.com/products/docker-desktop).
 
