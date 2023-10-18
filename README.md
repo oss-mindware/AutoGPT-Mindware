@@ -36,27 +36,11 @@ Sign up to [Mindware](https://mindware.xyz) and locate your free API key on the 
 
 If you haven't already installed Docker Desktop, download the latest version [here](https://www.docker.com/products/docker-desktop).
 
-### 3. Install AutoGPT & Mindware
-
-To install AutoGPT and the Mindware plugin, execute the following command in a directory of your choosing:
-
-#### For Mac, Linux, or WSL:
-
-```bash
-cd plugins && git clone https://github.com/open-mindware/AutoGPT-Mindware.git && zip -r ./AutoGPT-Mindware.zip ./AutoGPT-Mindware && rm -rf ./AutoGPT-Mindware && cd .. && ./run.sh --install-plugin-deps
-```
-
-#### For Windows (Powershell):
-
-```powershell
-git clone https://github.com/open-mindware/AutoGPT-Mindware-Installer.git; cd AutoGPT-Mindware-Installer; .\installer.bat
-```
-
 ## 🔧 Setup
 
 ### 1. Install AutoGPT & Mindware
 
-To install AutoGPT and the Mindware plugin, execute the following command in a directory of your choosing:
+To install AutoGPT and the Mindware plugin, make sure Docker is runner and execute the following command in a directory of your choosing:
 
 #### For Mac, Linux, or WSL:
 
