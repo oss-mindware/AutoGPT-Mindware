@@ -40,7 +40,7 @@ If you haven't already installed Docker Desktop, download the latest version [he
 
 ### 1. Install AutoGPT & Mindware
 
-To install AutoGPT and the Mindware plugin, make sure Docker is runner and execute the following command in a directory of your choosing:
+To install AutoGPT and the Mindware plugin, make sure Docker is running and execute the following command in a directory of your choosing:
 
 #### For Mac, Linux, or WSL:
 
