@@ -34,7 +34,7 @@ Sign up to [Mindware](https://mindware.xyz) and locate your free API key on the 
 
 ### 2. Install Docker Desktop
 
-<a href="http://[example.com/](https://www.docker.com/products/docker-desktop/)" target="_blank">Download</a>
+Download the latest version of Docker Desktop <a href="http://https://www.docker.com/products/docker-desktop/" target="_blank">here</a>.
 
 ### 3. Install AutoGPT & Mindware
 
