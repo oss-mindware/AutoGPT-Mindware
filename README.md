@@ -26,17 +26,17 @@
 
 ## 📚 Prerequisites
 
-### 1. Obtain OpenAI API Key
+### 1. OpenAI API Key
 
 If you don't already have an OpenAI API key, get one [here](https://openai.com/blog/openai-api).
 
-### 2. Obtain Mindware API Key
+### 2. Mindware API Key
 
 Sign up to [Mindware](https://mindware.xyz) and copy your free API key from the account page:
 
 <img width="945" alt="Screenshot 2023-08-27 145759" src="https://github.com/open-mindware/AutoGPT-Mindware/assets/23727727/00583046-3468-4bfe-b32d-5a6c76009068">
 
-### 3. Install Docker Desktop
+### 3. Docker Desktop
 
 If you don't already have Docker inatalled, download the latest version [here](https://www.docker.com/products/docker-desktop).
 
@@ -44,7 +44,7 @@ If you don't already have Docker inatalled, download the latest version [here](h
 
 ### 1. Install AutoGPT & Mindware
 
-To install AutoGPT and Mindware, make sure Docker is running and run the following command in a directory of your choosing:
+To install AutoGPT and Mindware, make sure Docker is running and then run the following command in a directory of your choosing:
 
 #### For Mac, Linux, or WSL:
 
@@ -68,7 +68,7 @@ docker compose run --rm auto-gpt --install-plugin-deps
 
 ## 🧠 How to Use
 
-After completing these installation steps, you can enable/disable plugins for AutoGPT via the plugin page. For instance, if you want AutoGPT to find YouTube videos, enable the YouTube plugin:
+After completing these installation steps, you can enable/disable plugins for AutoGPT via the Mindware [plugins page](https://mindware.xyz) For instance, if you want AutoGPT to find YouTube videos, enable the YouTube plugin:
 
 <img width="945" alt="Screenshot 2023-08-27 151437" src="https://github.com/open-mindware/AutoGPT-Mindware/assets/23727727/bcdb83bd-36e3-4993-b6ac-83660ef1cc0d">
 
