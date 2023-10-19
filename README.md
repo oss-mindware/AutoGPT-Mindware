@@ -68,7 +68,7 @@ docker compose run --rm auto-gpt --install-plugin-deps
 
 ## 🧠 How to Use
 
-After completing these installation steps, you can enable/disable plugins for AutoGPT via the Mindware [plugins page](https://mindware.xyz) For instance, if you want AutoGPT to find YouTube videos, enable the YouTube plugin:
+After completing these installation steps, you can enable/disable plugins for AutoGPT via the Mindware [plugins page](https://mindware.xyz). For instance, if you want AutoGPT to find YouTube videos, enable the YouTube plugin:
 
 <img width="945" alt="Screenshot 2023-08-27 151437" src="https://github.com/open-mindware/AutoGPT-Mindware/assets/23727727/bcdb83bd-36e3-4993-b6ac-83660ef1cc0d">
 
