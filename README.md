@@ -61,7 +61,7 @@ git clone https://github.com/open-mindware/AutoGPT-Mindware-Installer.git; .\Aut
 
 ### 2. Start AutoGPT
 
-The last command will automatically start AutoGPT after the installation process. Going forward, whenever you want to start AutoGPT, run the following command from the AutoGPT directory:
+The last command will automatically start AutoGPT after the installation process. Going forward, whenever you want to start AutoGPT, run the following command from the root directory:
 
 ```bash
 docker compose run --rm auto-gpt --install-plugin-deps
