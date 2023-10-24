@@ -49,7 +49,7 @@ To install AutoGPT and Mindware, make sure Docker is running and then run the fo
 #### For Mac, Linux, or WSL:
 
 ```bash
-git clone https://github.com/open-mindware/AutoGPT-Mindware-Installer.git && cd ./AutoGPT-Mindware-Installer/installer.sh
+git clone https://github.com/open-mindware/AutoGPT-Mindware-Installer.git && cd ./AutoGPT-Mindware-Installer && ./installer.sh
 ```
 
 #### For Windows (Powershell):
