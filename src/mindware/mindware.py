@@ -9,7 +9,7 @@ headers = {"Authorization": "Bearer " + api_key, "Content-Type": "application/js
 
 
 def get_enabled_plugin_functions() -> list[PluginFunction]:
-    url = "https://mindware-main-8d68414.d2.zuplo.dev/plugins"
+    url = "https://gateway.mindware.xyz/plugins"
 
     response = requests.get(url, headers=headers, timeout=30)
 
