@@ -20,87 +20,62 @@
 -->
 
 <!-- PROJECT LOGO -->
-<br />
 <div align="center">
-    <img src="https://wlqmlsriumpfpcnpgpxn.supabase.co/storage/v1/object/public/media/logos/mindware.png" alt="Logo" width="200" height="200">
+    <img src="https://github.com/open-mindware/AutoGPT-Mindware/assets/23727727/6d982e1b-ffff-4fe5-9820-04441f8e77d2" alt="Logo" width="200" height="200">
 </div>
 
 ## 📚 Prerequisites
 
-### 1. Obtain Mindware API Key
+### 1. OpenAI API Key
 
-Sign up to [Mindware](https://mindware.xyz) and locate your free API key on the account page:
+If you don't already have an OpenAI API key, get one [here](https://openai.com/blog/openai-api).
 
-<img width="945" alt="Screenshot 2023-08-27 145759" src="https://github.com/open-mindware/AutoGPT-Mindware/assets/23727727/00583046-3468-4bfe-b32d-5a6c76009068">
+### 2. Mindware API Key
 
-### 2. Install the Plugin
+Sign up to [Mindware](https://mindware.xyz) and copy your free API key from the account page:
 
-To install the plugin, execute the following command in the root directory of Auto-GPT:
+<img width="945" alt="Screenshot 2023-10-16 145320" src="https://github.com/open-mindware/AutoGPT-Mindware/assets/23727727/f7b72851-a613-4073-852e-c8d93ec2f1fe">
+
+
+### 3. Docker Desktop
+
+If you don't already have Docker inatalled, download the latest version [here](https://www.docker.com/products/docker-desktop).
+
+## 🔧 Setup
+
+### 1. Install AutoGPT & Mindware
+
+To install AutoGPT and Mindware, make sure Docker is running and then run the following command in a directory of your choosing:
 
 #### For Mac, Linux, or WSL:
 
 ```bash
-cd plugins && git clone https://github.com/open-mindware/AutoGPT-Mindware.git && zip -r ./AutoGPT-Mindware.zip ./AutoGPT-Mindware && rm -rf ./AutoGPT-Mindware && cd .. && ./run.sh --install-plugin-deps
+git clone https://github.com/open-mindware/AutoGPT-Mindware-Installer.git && cd ./AutoGPT-Mindware-Installer && ./installer.sh
 ```
 
 #### For Windows (Powershell):
 
 ```powershell
-cd plugins; git clone https://github.com/open-mindware/AutoGPT-Mindware.git; Compress-Archive -Path .\\AutoGPT-Mindware -DestinationPath .\\AutoGPT-Mindware.zip; Remove-Item -Recurse -Force .\\AutoGPT-Mindware; cd ..
+git clone https://github.com/open-mindware/AutoGPT-Mindware-Installer.git; .\AutoGPT-Mindware-Installer\installer.bat
 ```
 
-## 🔧 Configuration Steps
+### 2. Start AutoGPT
 
-### 1. Update the `.env` File
-
-Add your Mindware API key to your `.env` file by appending the following lines:
-
-```env
-################################################################################
-### MINDWARE
-################################################################################
-
-MINDWARE_API_KEY=your_api_key_here
-```
-
-### 2. Create or update `plugins_config.yaml` File
-
-If the `plugins_config.yaml` file doesn't exist, **create a one**. Then, add the following configuration:
-
-```yaml
-MindwarePlugin:
-  config: {}
-  enabled: true
-```
-### 3. Run Auto-GPT
-
-#### For Mac, Linux, or WSL:
+The last command will automatically start AutoGPT after the installation process. Going forward, whenever you want to start AutoGPT, run the following command from the root directory:
 
 ```bash
-./run.sh --install-plugin-deps
-```
-
-#### For Windows (Powershell):
-
-```powershell
-.\run.bat --install-plugin-deps
-```
-
-#### Directly Via CLI:
-
-```
-python -m autogpt --install-plugin-deps
+docker compose run --rm auto-gpt --install-plugin-deps
 ```
 
 ## 🧠 How to Use
 
-After completing the installation and configuration steps, you can enable specific plugins for Auto-GPT via the [plugin portal](https://mindware.xyz). For instance, if you want Auto-GPT to find YouTube videos, enable the YouTube plugin:
+After completing these installation steps, you can enable/disable plugins for AutoGPT via the Mindware [plugins page](https://mindware.xyz/plugins). For instance, if you want AutoGPT to find YouTube videos, enable the YouTube plugin:
 
-<img width="945" alt="Screenshot 2023-08-27 151437" src="https://github.com/open-mindware/AutoGPT-Mindware/assets/23727727/bcdb83bd-36e3-4993-b6ac-83660ef1cc0d">
+<img width="945" alt="Screenshot 2023-10-24 122112" src="https://github.com/open-mindware/AutoGPT-Mindware/assets/23727727/b47f991c-bd84-464c-88cc-c9163544b4a0">
 
 ### Example:
 
-#### 1. Configure Auto-GPT
+#### 1. Configure AutoGPT
 
 Set up the `ai_settings.yaml` file with the following parameters:
 
@@ -114,7 +89,7 @@ ai_role:
 api_budget: 0.05
 ```
 
-#### 2. Run Auto-GPT
+#### 2. Start AutoGPT
 
-Launch Auto-GPT. It should utilize the YouTube plugin to find sushi videos 🍣
+Launch AutoGPT. It should utilize the YouTube plugin to find sushi videos 🍣
 
